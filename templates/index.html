@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <title>To-Do App</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        width: 350px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 10px;
+        width: 70%;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        padding: 10px;
+        border: none;
+        background: #28a745;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+      }
+
+      li {
+        background: #f9f9f9;
+        margin: 8px 0;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      a {
+        text-decoration: none;
+        margin-left: 8px;
+      }
+
+      .done {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .logout {
+        display: block;
+        margin-bottom: 10px;
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>My Tasks</h2>
+
+      <a href="/logout" class="logout">Logout</a>
+
+      <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter task..." required />
+        <button>Add</button>
+      </form>
+
+      <ul>
+        {% for task in tasks %}
+        <li>
+          <span class="{{ 'done' if task.done else '' }}">
+            {{ task.content }}
+          </span>
+
+          <div>
+            <a href="/complete/{{ task.id }}">✔</a>
+            <a href="/delete/{{ task.id }}">❌</a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
