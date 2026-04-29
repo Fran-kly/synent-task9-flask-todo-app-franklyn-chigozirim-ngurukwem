@@ -35,7 +35,6 @@ Project Structure
 - database.db → SQLite database (auto-created)
 
 Demo
-https://drive.google.com/file/d/11gxfq7TaVbHV3WGzoh_4DhjBR4asBCjm/view?usp=sharing
-
+https://youtu.be/xy4FLevlCPc
 Author
 Franklyn Chigozirim Ngurukwem
